@@ -1,0 +1,25 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @book %>
+
+<div>
+  <p>
+    <strong>Author:</strong>
+    <%= @book.author %>
+  </p>
+
+  <p>
+    <strong>Price:</strong>
+    <%= @book.price %>
+  </p>
+
+  <p>
+    <strong>Published date:</strong>
+    <%= @book.published_date %>
+  </p>
+
+  <%= link_to "Edit this book", edit_book_path(@book) %> |
+  <%= link_to "Back to books", books_path %>
+
+  <%= link_to('Delete', @book, method: :delete, data: { controller: "confirm", confirm_message_value: "Are you sure?" }) %>
+</div>
