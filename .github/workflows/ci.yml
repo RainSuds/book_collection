@@ -34,7 +34,7 @@ jobs:
         env:
           RAILS_ENV: test
         run: |
-          bin/rails db:prepare
+          bundle exec rails db:prepare
 
       - name: Run RSpec
         env:
