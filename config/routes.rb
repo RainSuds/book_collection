@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "books#index"
+  # Root should go to the new view for the associative entity (UserBooks index)
+  root "user_books#index"
 
   resources :books do
     member do
@@ -7,5 +8,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users
+  resources :user_books
 end
 
