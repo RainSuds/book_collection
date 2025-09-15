@@ -20,8 +20,8 @@
       <tr>
         <td><%= book.title %></td>
         <td><%= book.author %></td>
-        <td><%= number_to_currency(book.price) %></td>
-        <td><%= book.published_date.strftime("%B %d, %Y") if book.published_date %></td>
+  <td><%= book.price.present? ? number_to_currency(book.price) : "-" %></td>
+  <td><%= book.published_date.present? ? book.published_date.strftime("%B %d, %Y") : "-" %></td>
         <td>
           <%= link_to "Show", book_path(book), class: "btn btn-info btn-sm" %>
           <%= link_to "Edit", edit_book_path(book), class: "btn btn-warning btn-sm" %>
