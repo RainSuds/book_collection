@@ -1,0 +1,21 @@
+{
+  "name": "Book Collection",
+  "description": "Rails 7 app for managing a book collection",
+  "env": {
+    "RAILS_ENV": {
+      "value": "production"
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "value": "1"
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "value": "1"
+    }
+  },
+  "addons": [
+    "heroku-postgresql:essential-0"
+  ],
+  "scripts": {
+    "postdeploy": "bundle exec rails db:migrate"
+  }
+}
