@@ -3,7 +3,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.4.5"
 
-gem "bootsnap"
 gem 'rexml'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -67,6 +66,8 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails", "~> 6.1"
   gem "capybara"
+  # Optional helper to dump the current DB rows into db/seeds.rb
+  gem 'seed_dump'
 end
 
 group :development do
