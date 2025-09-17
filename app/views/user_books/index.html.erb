@@ -1,0 +1,30 @@
+<h1>User Books</h1>
+
+<div class="mb-3 text-end">
+  <%= link_to 'New User-Book Link', new_user_book_path, class: 'btn btn-primary' %>
+  <%= link_to 'Books', books_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Users', users_path, class: 'btn btn-secondary' %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Book</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user_books.each do |ub| %>
+      <tr>
+        <td><%= ub.user&.username %></td>
+        <td><%= ub.book&.title %></td>
+        <td>
+          <%= link_to 'Show', user_book_path(ub), class: 'btn btn-info btn-sm' %>
+          <%= link_to 'Edit', edit_user_book_path(ub), class: 'btn btn-warning btn-sm' %>
+          <%= link_to 'Delete', user_book_path(ub), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
