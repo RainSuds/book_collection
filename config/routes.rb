@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
-  root "user_books#index"
+  # Make the books index the root so system specs that visit root_path find the books list
+  root "books#index"
 
   resources :books do
     member do
