@@ -67,6 +67,8 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem "rspec-rails", "~> 6.1"
   gem "capybara"
+  # Optional helper to dump the current DB rows into db/seeds.rb
+  gem 'seed_dump'
 end
 
 group :development do
