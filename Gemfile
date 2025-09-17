@@ -1,10 +1,13 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.2"
+ruby "3.4.5"
+
+gem "bootsnap"
+gem 'rexml'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.0.3"
+gem "rails", "~> 8.0.2.1", ">=8.0.2.1"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -12,7 +15,8 @@ gem "sprockets-rails"
 # Databases
 # Use sqlite3 in development and test
 group :development, :test do
-  gem "sqlite3", "~> 1.4"
+  # Rails 8 requires sqlite3 >= 2.1 for the new adapter; use the newer gem
+  gem "sqlite3", ">= 2.1"
 end
 
 # Use PostgreSQL in production (Heroku)
@@ -21,7 +25,7 @@ group :production do
 end
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", "~> 5.0"
+gem "puma", "~> 6.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -56,7 +60,7 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'concurrent-ruby', '1.3.4'
+gem 'concurrent-ruby', '1.3.5'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -81,3 +85,6 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem 'brakeman'
+gem 'rubocop'

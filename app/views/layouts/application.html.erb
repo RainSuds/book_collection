@@ -11,6 +11,11 @@
   </head>
 
   <body>
+    <nav style="padding: 10px; background: #f5f5f5; margin-bottom: 10px;">
+      <%= link_to 'User Books', user_books_path %> |
+      <%= link_to 'Books', books_path %> |
+      <%= link_to 'Users', users_path %>
+    </nav>
     <%= yield %>
 
     <% if notice %>
