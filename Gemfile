@@ -15,7 +15,8 @@ gem "sprockets-rails"
 # Databases
 # Use sqlite3 in development and test
 group :development, :test do
-  gem "sqlite3", "~> 1.4"
+  # Rails 8 requires sqlite3 >= 2.1 for the new adapter; use the newer gem
+  gem "sqlite3", ">= 2.1"
 end
 
 # Use PostgreSQL in production (Heroku)
