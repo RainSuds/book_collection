@@ -16,9 +16,14 @@ books = [
 ]
 
 books.each do |attrs|
-	Book.find_or_create_by(title: attrs[:title]) do |b|
-		b.author = attrs[:author]
-		b.price = attrs[:price]
-		b.published_date = attrs[:published_date]
-	end
+  Book.find_or_create_by(title: attrs[:title]) do |b|
+    b.author = attrs[:author]
+    b.price = attrs[:price]
+    b.published_date = attrs[:published_date]
+  end
 end
+
+# Load environment-specific seeds from db/seeds/<environment>.rb if present.
+# For example: db/seeds/development.rb, db/seeds/production.rb
+env_file = Rails.root.join('db', 'seeds', "#{Rails.env}.rb")
+load(env_file) if File.exist?(env_file)
